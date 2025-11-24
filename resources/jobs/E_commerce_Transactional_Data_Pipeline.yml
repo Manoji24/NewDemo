@@ -1,0 +1,54 @@
+resources:
+  jobs:
+    E_commerce_Transactional_Data_Pipeline:
+      name: E-commerce Transactional Data Pipeline
+      schedule:
+        quartz_cron_expression: 43 0 0 * * ?
+        timezone_id: UTC
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: Initial_Setup
+          notebook_task:
+            notebook_path: ../notebooks/00_Initial_Setup.sql
+            source: WORKSPACE
+        - task_key: 01_Bronze_Ingestion
+          depends_on:
+            - task_key: Initial_Setup
+          notebook_task:
+            notebook_path: ../notebooks/01_Bronze_Ingestion.ipynb
+            source: WORKSPACE
+        - task_key: 02_Silver_Customers
+          depends_on:
+            - task_key: 01_Bronze_Ingestion
+          notebook_task:
+            notebook_path: ../notebooks/02_Silver_Customers_SCD2.ipynb
+            source: WORKSPACE
+        - task_key: 02_Silver_Products
+          depends_on:
+            - task_key: 01_Bronze_Ingestion
+          notebook_task:
+            notebook_path: ../notebooks/02_Silver_Products.ipynb
+            source: WORKSPACE
+        - task_key: 02_Silver_Transactions
+          depends_on:
+            - task_key: 01_Bronze_Ingestion
+          notebook_task:
+            notebook_path: ../notebooks/02_Silver_Transaction.ipynb
+            source: WORKSPACE
+        - task_key: 03_Gold_Sales_Fact_Table
+          depends_on:
+            - task_key: 02_Silver_Customers
+            - task_key: 02_Silver_Products
+            - task_key: 02_Silver_Transactions
+          notebook_task:
+            notebook_path: ../notebooks/03_Gold_Fact_Table.ipynb
+            source: WORKSPACE
+        - task_key: 04_Gold_Fact_Table
+          depends_on:
+            - task_key: 03_Gold_Sales_Fact_Table
+          notebook_task:
+            notebook_path: ../notebooks/04_Gold_Aggregations.ipynb
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

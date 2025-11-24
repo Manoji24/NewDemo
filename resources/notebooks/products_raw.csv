@@ -1,0 +1,21 @@
+item_id,product_name,category
+PROD-004A,Blue Widget,APPAREL
+PROD-002B,Red Hat,APPAREL
+PROD-003C,Smartphone,Electronics
+PROD-005D,Notebook,Stationery
+PROD-006E,Laptop,Electronics
+PROD-007F,Desk Chair,Furniture
+PROD-008G,Water Bottle,HOMEELECTRONICS
+PROD-009H,Television,Electronics
+PROD-010I,Pen,stationery
+PROD-011J,Backpack,APPAREL
+PROD-012K,Headphones,homeElectronics
+PROD-013L,Sneakers,APPAREL
+PROD-014M,Blender,Home
+PROD-015N,Tablet,Electronics
+PROD-016O,T-Shirt,APPAREL
+PROD-017P,Office Desk,Furniture
+PROD-018Q,Camera,Electronics
+PROD-019R,Microwave,Home
+PROD-020S,Book,Stationery
+PROD-021T,Jacket,APPAREL
