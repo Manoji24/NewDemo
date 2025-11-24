@@ -1,0 +1,28 @@
+bundle:
+  name: Capstone
+
+include:
+  - src/*.yml
+  - src/env/*.yml
+  - resources/jobs/*.yml
+
+permissions:
+    - user_name: mmanojipec@gmail.com
+      level: CAN_MANAGE
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-3583dc88-1cc3.cloud.databricks.com/
+
+  qa:
+    default: false
+    workspace:
+      host: https://dbc-3583dc88-1cc3.cloud.databricks.com/
+
+  prod:
+    default: false
+    workspace:
+      host: https://dbc-3583dc88-1cc3.cloud.databricks.com/

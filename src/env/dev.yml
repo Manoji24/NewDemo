@@ -1,0 +1,7 @@
+targets:
+  dev:
+    permissions:
+    - user_name: mmanojipec@gmail.com
+      level: CAN_MANAGE
+    presets:
+      name_prefix: (dev ${workspace.current_user.short_name})
