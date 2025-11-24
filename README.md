@@ -6,6 +6,7 @@ To deploy and manage this asset bundle, follow these steps:
 
 ### 1. Deployment
 
+-  Please change the username in dev.yml and databricks.yml.
 - Click the **deployment rocket** 🚀 in the left sidebar to open the **Deployments** panel, then click **Deploy**.
 
 ### 2. Running Jobs & Pipelines
