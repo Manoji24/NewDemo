@@ -5,8 +5,8 @@ resources:
       trigger:
         pause_status: UNPAUSED
         file_arrival:
-          url: s3://capstone-proj-src/files/landing/*/
-          min_time_between_triggers_seconds: 60
+          url: s3://capstone-proj-src/files/landing/customer_raw/
+          min_time_between_triggers_seconds: 20
       tasks:
         - task_key: Initial_Setup
           notebook_task:
