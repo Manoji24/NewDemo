@@ -2,6 +2,9 @@ resources:
   jobs:
     E_commerce_Transactional_Data_Pipeline:
       name: E-commerce Transactional Data Pipeline
+      email_notifications:
+        on_failure:
+          - mmanojipec@gmail.com
       trigger:
         pause_status: UNPAUSED
         file_arrival:
@@ -11,8 +14,6 @@ resources:
         - task_key: Initial_Setup
           notebook_task:
             notebook_path: ../notebooks/00_Initial_Setup.sql
-            base_parameters:
-              catalog: capstone
             source: WORKSPACE
         - task_key: 01_Bronze_Ingestion
           depends_on:
