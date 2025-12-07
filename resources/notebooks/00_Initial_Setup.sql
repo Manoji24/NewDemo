@@ -67,6 +67,15 @@ LIST '/Volumes/capstone/bronze/raw'
 
 -- COMMAND ----------
 
+CREATE VOLUME IF NOT EXISTS CAPSTONE.BRONZE.RAWTEST
+        COMMENT 'This is the external volume for source data'
+
+-- COMMAND ----------
+
+LIST '/Volumes/capstone/bronze/rawtest' 
+
+-- COMMAND ----------
+
 -- MAGIC %python
 -- MAGIC def create_directory_ifnotexists(file_path):
 -- MAGIC   try:
@@ -96,3 +105,9 @@ LIST '/Volumes/capstone/bronze/raw'
 -- MAGIC %sh
 -- MAGIC ls -lrt /Volumes/CAPSTONE/bronze/raw/files/landing/*/
 -- MAGIC
+
+-- COMMAND ----------
+
+CREATE TABLE IF NOT EXISTS AUDIT_LOGS (
+  
+)

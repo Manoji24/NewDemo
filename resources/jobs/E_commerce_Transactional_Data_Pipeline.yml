@@ -8,12 +8,14 @@ resources:
       trigger:
         pause_status: UNPAUSED
         file_arrival:
-          url: /Volumes/capstone/bronze/raw/files/landing/customers_raw/
+          url: /Volumes/capstone/bronze/rawtest
           min_time_between_triggers_seconds: 60
       tasks:
         - task_key: Initial_Setup
           notebook_task:
             notebook_path: ../notebooks/00_Initial_Setup.sql
+            base_parameters:
+              catalog: capstone
             source: WORKSPACE
         - task_key: 01_Bronze_Ingestion
           depends_on:
